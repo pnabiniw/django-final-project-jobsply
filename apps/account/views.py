@@ -38,4 +38,4 @@ class UserLoginView(FormView):
             messages.success(self.request, "User logged in!")
             return redirect("home_page")
         messages.error(self.request, "Invalid credentials!")
-        redirect("user_login")
+        return redirect("user_login")
