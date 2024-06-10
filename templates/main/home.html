@@ -3,5 +3,23 @@
 {% block title %}Home{% endblock %}
 
 {% block sub_content %}
+    {% if request.user.is_authenticated and not request.user.is_verified %}
+        <div id="cross-message" style="background-color: coral; color: white; width: 40%; padding: 5px; border-radius: 15px;margin: auto">
+        <h5 style="margin-left: 5px; cursor: pointer">
+            Please activate your email
+        <a href="{% url 'resend_ac_activation' request.user.id %}"><small style="font-size: 0.8rem;">Resend email activation</small></a>
+            <sup style="margin-left: 100px" onclick="hideMessage()">x</sup>
+        </h5>
+        </div>
+    {% endif %}
     <h1>Home</h1>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+    function hideMessage(){
+        messg = document.getElementById("cross-message")
+        messg.style.display = "none"
+    }
+    </script>
 {% endblock %}
