@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block sub_content %}
+    <br><br>
     <div class="row">
         <div class="col-md-4">
             {% if request.user.userprofile.profile_picture %}
@@ -51,7 +52,7 @@
                     <td>Account Status</td>
                     <td>{% if object.is_verified %}
                         <span style="background-color: forestgreen; padding: 5px; color: white">Activated</span>
-                    {% else %}<span style="background-color: tomato; padding: 5px; color: white">Not Activated</span>{% endif %}</td>
+                    {% else %}<span style="background-color: red; padding: 5px; color: white">Not Activated</span>{% endif %}</td>
                 </tr>
             </table>
         </div>

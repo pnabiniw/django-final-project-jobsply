@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+from .models import Job
 
 
-class HomePageView(TemplateView):
+class HomePageView(ListView):
     template_name = "main/home.html"
+    queryset = Job.objects.all().order_by("-created_at")
+    paginate_by = 6
